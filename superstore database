@@ -28,7 +28,7 @@ VALUES
 #Use a SELECT statement to order the items by price.
 select item_name, price
 from superstore
-order by price desc;
+order by price;
 
 #Show a statistic about the item prices.
 select min(price),item_name
