@@ -27,3 +27,35 @@ time_signature integer NOT NULL
 #Then I inserted the Spotify Data .csv into the table.
 
 #Next, I explored the data using the following SQL. 
+
+#First I determined who the Top 5 artist are by popularity.
+SELECT artist_name, track_name, popularity
+FROM BIT_DB.Spotifydata
+ORDER BY popularity desc
+LIMIT 5;
+
+#Then I listed the artist names in alphabetical order.
+SELECT distinct artist_name
+FROM BIT_DB.Spotifydata
+ORDER BY artist_name asc;
+
+#Then I determined which artist released the longest song.
+SELECT max(duration_ms), artist_name
+FROM BIT_DB.Spotifydata;
+
+#Then I determined the avg popularity, danceability, and energy by artist and track. 
+SELECT artist_name, track_name
+,avg(popularity)
+,avg(danceability)
+,avg(energy)
+FROM BIT_DB.spotifydata
+GROUP BY artist_name, track_name;
+
+#Then I determined how many tracks each artist had in the database.
+SELECT artist_name, count(track_name) as track_numbers
+FROM BIT_DB.Spotifydata
+GROUP BY artist_name;
+
+
+
+
